@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Scissors, Waves, Gift, Star, ArrowRight, Clock, DollarSign } from "lucide-react";
+import { Scissors, Hand, Heart, Sparkles, Zap, Star, ArrowRight, Clock, DollarSign } from "lucide-react";
 import heroBarbershop from "@/assets/hero-barbershop.jpg";
 import heroSpa from "@/assets/hero-spa.jpg";
 import groomingSpaTools from "@/assets/grooming-spa-tools.jpg";
@@ -13,30 +13,48 @@ const Services = () => {
   const serviceCategories = [
     {
       icon: Scissors,
-      title: "Barbershop Services",
-      description: "Expert cuts, styling, and grooming by master barbers",
+      title: "HAIRCUT",
+      description: "Premium haircuts and styling services with precision and artistry",
       image: heroBarbershop,
-      href: "/services/barbershop",
-      services: ["Classic Cuts", "Modern Fades", "Beard Styling", "Hot Towel Shaves"],
-      startingPrice: "KSh 800"
+      href: "/services/haircut",
+      services: ["Platinum Haircut - KES 1,500", "Platinum Fade - KES 2,000", "Royal Shave - KES 2,000"],
+      startingPrice: "From KES 1,000"
     },
     {
-      icon: Waves,
-      title: "Massage & Spa Services", 
-      description: "Therapeutic treatments for complete relaxation",
+      icon: Hand,
+      title: "NAIL CARE",
+      description: "Professional nail care and maintenance for hands and feet",
       image: heroSpa,
-      href: "/services/massage-and-spa",
-      services: ["Swedish Massage", "Deep Tissue", "Hot Stone", "Aromatherapy"],
-      startingPrice: "KSh 2,500"
+      href: "/services/nail-care",
+      services: ["Platinum Footcare - KES 2,500", "Platinum Handcare - KES 1,500", "Paraffin Wax - KES 1,000"],
+      startingPrice: "From KES 1,000"
     },
     {
-      icon: Gift,
-      title: "Packages & Bundles",
-      description: "Curated combinations for the ultimate experience",
+      icon: Heart,
+      title: "MASSAGE",
+      description: "Therapeutic and relaxation massage treatments for ultimate wellness",
+      image: heroSpa,
+      href: "/services/massage",
+      services: ["Platinum Hotstone - KES 6,000", "Swedish Massage - KES 4,500", "Deep Tissue - KES 5,000"],
+      startingPrice: "From KES 500"
+    },
+    {
+      icon: Sparkles,
+      title: "FACIAL",
+      description: "Advanced facial treatments for healthy, glowing skin",
+      image: heroSpa,
+      href: "/services/facial",
+      services: ["Platinum Hydrating - KES 4,000", "Anti-aging - KES 4,500", "Mini Facial - KES 2,000"],
+      startingPrice: "From KES 1,500"
+    },
+    {
+      icon: Zap,
+      title: "WAXING",
+      description: "Professional waxing services for smooth, hair-free skin",
       image: heroBarbershop,
-      href: "/services/bundled-packages", 
-      services: ["Groom & Relax", "Executive Reset", "Father & Son", "Couples Retreat"],
-      startingPrice: "KSh 3,200"
+      href: "/services/waxing",
+      services: ["Brazilian - KES 3,000", "Chest - KES 1,500", "Leg Waxing - KES 1,500"],
+      startingPrice: "From KES 1,000"
     }
   ];
 
@@ -77,11 +95,11 @@ const Services = () => {
               Our Services
             </Badge>
             <h1 className="heading-hero text-white">
-              Where Style Meets <span className="text-gradient-gold">Serenity</span>
+              Premium Services at <span className="text-gradient-gold">Baberia Cuts Platinum</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Experience the unique combination of expert barbering and luxury spa treatments. 
-              From precision cuts to therapeutic massages, we offer comprehensive grooming and wellness services in Nairobi CBD.
+              Experience luxury grooming and wellness services in Nairobi. From precision haircuts to therapeutic massages, 
+              discover our comprehensive menu at Pension Towers, Loita Street.
             </p>
           </div>
         </div>
@@ -153,7 +171,7 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
             <Badge variant="outline" className="text-primary border-primary/30">
-              Why Choose Barberia Cuts
+              Why Choose Baberia Cuts Platinum
             </Badge>
             <h2 className="heading-section text-primary">
               Excellence in Every Detail
@@ -191,7 +209,7 @@ const Services = () => {
               Exclusive Membership
             </Badge>
             <h2 className="heading-section text-primary-foreground">
-              Join the Barberia Cuts Family
+              Join the Baberia Cuts Platinum Family
             </h2>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
               Unlock exclusive benefits, priority booking, and special discounts with our membership program. 

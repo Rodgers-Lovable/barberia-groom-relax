@@ -74,7 +74,7 @@ const Header = () => {
               }`}
             >
               <Scissors className="h-8 w-8 text-accent" />
-              <span>Barberia Cuts</span>
+              <span>Baberia Cuts Platinum</span>
             </Link>
 
             {/* Right Navigation & CTAs */}
