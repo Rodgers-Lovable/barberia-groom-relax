@@ -1,0 +1,288 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Simple form validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Please fill in all fields",
+        description: "All fields are required to submit your message.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Simulate form submission
+    toast({
+      title: "Message sent successfully!",
+      description: "We'll get back to you within 24 hours.",
+    });
+
+    // Reset form
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: "Visit Us",
+      details: ["123 Kenyatta Avenue", "Nairobi CBD, Kenya"]
+    },
+    {
+      icon: Phone,
+      title: "Call Us",
+      details: ["+254 123 456 789", "+254 987 654 321"]
+    },
+    {
+      icon: Mail,
+      title: "Email Us",
+      details: ["info@barberiacuts.co.ke", "bookings@barberiacuts.co.ke"]
+    },
+    {
+      icon: Clock,
+      title: "Business Hours",
+      details: ["Mon-Fri: 8:00 AM - 8:00 PM", "Sat-Sun: 9:00 AM - 6:00 PM"]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative py-32 bg-gradient-to-br from-secondary to-primary text-primary-foreground overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <Badge className="bg-accent/20 text-accent border-accent/30">
+              Get In Touch
+            </Badge>
+            <h1 className="heading-hero text-primary-foreground">
+              Ready to Look <span className="text-gradient-gold">Sharp?</span>
+            </h1>
+            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
+              Have questions about our services? Want to book an appointment? 
+              We're here to help you achieve your perfect look and ultimate relaxation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form & Info */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* Contact Form */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <Badge variant="outline" className="text-primary border-primary/30">
+                  Send us a message
+                </Badge>
+                <h2 className="heading-section text-primary">
+                  Let's Start a Conversation
+                </h2>
+                <p className="text-muted-foreground">
+                  Fill out the form below and we'll get back to you as soon as possible.
+                </p>
+              </div>
+
+              <Card className="card-premium">
+                <CardHeader>
+                  <CardTitle className="font-playfair text-xl text-primary">
+                    Contact Form
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-primary font-medium">
+                        Full Name *
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Enter your full name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="transition-colors focus:border-accent"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-primary font-medium">
+                        Email Address *
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="transition-colors focus:border-accent"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-primary font-medium">
+                        Message *
+                      </Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us how we can help you..."
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="min-h-32 transition-colors focus:border-accent resize-none"
+                        required
+                      />
+                    </div>
+
+                    <Button type="submit" className="w-full btn-premium">
+                      Send Message
+                      <Send className="ml-2 h-4 w-4" />
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <Badge variant="outline" className="text-primary border-primary/30">
+                  Contact Information
+                </Badge>
+                <h2 className="heading-section text-primary">
+                  Visit Our Location
+                </h2>
+                <p className="text-muted-foreground">
+                  Find us in the heart of Nairobi CBD, easily accessible and ready to serve you.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {contactInfo.map((info) => {
+                  const Icon = info.icon;
+                  return (
+                    <Card key={info.title} className="card-premium">
+                      <CardContent className="p-6">
+                        <div className="flex items-start space-x-4">
+                          <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <Icon className="h-6 w-6 text-accent" />
+                          </div>
+                          <div className="space-y-1">
+                            <h3 className="font-playfair text-lg font-semibold text-primary">
+                              {info.title}
+                            </h3>
+                            <div className="space-y-1">
+                              {info.details.map((detail, index) => (
+                                <p key={index} className="text-muted-foreground">
+                                  {detail}
+                                </p>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 space-y-4">
+            <Badge variant="outline" className="text-primary border-primary/30">
+              Find Us
+            </Badge>
+            <h2 className="heading-section text-primary">
+              Our Location
+            </h2>
+          </div>
+
+          <Card className="card-premium overflow-hidden">
+            <div className="aspect-video bg-muted/50 flex items-center justify-center">
+              <div className="text-center space-y-2">
+                <MapPin className="h-12 w-12 text-accent mx-auto" />
+                <p className="text-muted-foreground">
+                  Interactive map would be embedded here
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  123 Kenyatta Avenue, Nairobi CBD
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Quick Actions */}
+      <section className="py-20 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <Badge className="bg-accent/20 text-accent border-accent/30">
+              Ready to Book?
+            </Badge>
+            <h2 className="heading-section text-primary-foreground">
+              Don't Wait - Transform Today
+            </h2>
+            <p className="text-xl text-primary-foreground/90 leading-relaxed">
+              Skip the wait and book your appointment now. Experience the Barberia Cuts difference.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button className="btn-premium text-lg px-8 py-4">
+                Book Appointment
+              </Button>
+              <Button 
+                variant="outline" 
+                className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
+              >
+                Call Now: +254 123 456 789
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;

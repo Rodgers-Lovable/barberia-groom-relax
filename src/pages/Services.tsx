@@ -128,7 +128,7 @@ const Services = () => {
                     
                     <Link to={category.href} className="block">
                       <Button className="w-full btn-outline-premium group">
-                        View All Services
+                        View Details
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </Link>
@@ -136,6 +136,14 @@ const Services = () => {
                 </Card>
               );
             })}
+          </div>
+          
+          {/* View All Services Button */}
+          <div className="text-center mt-12">
+            <Button className="btn-premium text-lg px-8 py-4">
+              View All Services
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
