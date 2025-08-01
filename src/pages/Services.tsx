@@ -24,7 +24,7 @@ const Services = () => {
       title: "Massage & Spa Services", 
       description: "Therapeutic treatments for complete relaxation",
       image: heroSpa,
-      href: "/services/spa",
+      href: "/services/massage-and-spa",
       services: ["Swedish Massage", "Deep Tissue", "Hot Stone", "Aromatherapy"],
       startingPrice: "KSh 2,500"
     },
@@ -33,7 +33,7 @@ const Services = () => {
       title: "Packages & Bundles",
       description: "Curated combinations for the ultimate experience",
       image: heroBarbershop,
-      href: "/services/packages", 
+      href: "/services/bundled-packages", 
       services: ["Groom & Relax", "Executive Reset", "Father & Son", "Couples Retreat"],
       startingPrice: "KSh 3,200"
     }
@@ -138,13 +138,6 @@ const Services = () => {
             })}
           </div>
           
-          {/* View All Services Button */}
-          <div className="text-center mt-12">
-            <Button className="btn-premium text-lg px-8 py-4">
-              View All Services
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -198,15 +191,19 @@ const Services = () => {
               Perfect for regular clients who value consistent quality and convenience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button className="btn-premium text-lg px-8 py-4">
-                Learn About Membership
-              </Button>
-              <Button 
-                variant="outline" 
-                className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
-              >
-                View Pricing
-              </Button>
+              <Link to="/memberships">
+                <Button className="btn-premium text-lg px-8 py-4">
+                  Learn About Membership
+                </Button>
+              </Link>
+              <Link to="/memberships">
+                <Button 
+                  variant="outline" 
+                  className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
+                >
+                  View Pricing
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -51,8 +51,13 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Visit Us",
-      details: ["123 Kenyatta Avenue", "Nairobi CBD, Kenya"]
+      title: "Barbershop Location",
+      details: ["Pension Towers, Loita Street", "1st Floor, Nairobi CBD"]
+    },
+    {
+      icon: MapPin,
+      title: "Massage & Spa Location", 
+      details: ["Pension Towers, Loita Street", "2nd Floor, Nairobi CBD"]
     },
     {
       icon: Phone,
@@ -237,16 +242,17 @@ const Contact = () => {
           </div>
 
           <Card className="card-premium overflow-hidden">
-            <div className="aspect-video bg-muted/50 flex items-center justify-center">
-              <div className="text-center space-y-2">
-                <MapPin className="h-12 w-12 text-accent mx-auto" />
-                <p className="text-muted-foreground">
-                  Interactive map would be embedded here
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  123 Kenyatta Avenue, Nairobi CBD
-                </p>
-              </div>
+            <div className="aspect-video bg-background">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8174966506885!2d36.81910991475338!3d-1.2884370990629724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d22c5e0000%3A0x0!2zMcKwMTcnMTguNCJTIDM2wrA0OSczNC4yIkU!5e0!3m2!1sen!2ske!4v1234567890123"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Barberia Cuts Location - Pension Towers, Loita Street"
+              ></iframe>
             </div>
           </Card>
         </div>
