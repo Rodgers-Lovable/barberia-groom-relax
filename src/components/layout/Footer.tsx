@@ -90,12 +90,25 @@ const Footer = () => {
                   info@baberiacuts.co.ke
                 </a>
               </div>
-              
+            </div>
+          </div>
+
+          {/* Operating Hours */}
+          <div className="space-y-6">
+            <h3 className="font-playfair text-lg font-semibold text-primary">Hours</h3>
+            <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <Clock className="h-5 w-5 text-accent flex-shrink-0" />
                 <div className="text-secondary-foreground/80">
-                  <p>Mon-Sat: 8:00 AM – 8:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p className="font-medium">Monday - Saturday</p>
+                  <p className="text-accent">8AM - 8PM</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="h-5 w-5 flex-shrink-0" />
+                <div className="text-secondary-foreground/80">
+                  <p className="font-medium">Sunday</p>
+                  <p className="text-muted-foreground">Closed</p>
                 </div>
               </div>
             </div>
