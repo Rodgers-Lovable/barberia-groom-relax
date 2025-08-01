@@ -345,7 +345,7 @@ const Contact = () => {
                 variant="outline"
                 className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
               >
-                Call Now: +254 779 431 913
+                Call Now: +254 779431913
               </Button>
             </div>
           </div>

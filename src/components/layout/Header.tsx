@@ -48,7 +48,7 @@ const Header = () => {
           : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 items-center h-20">
+          <div className="grid grid-cols-2 lg:grid-cols-3 items-center h-20">
             {/* Left Navigation */}
             <nav className="hidden lg:flex items-center space-x-8 justify-start">
               {leftNavigation.map((item) => (
@@ -69,7 +69,7 @@ const Header = () => {
             {/* Center Logo */}
             <Link 
               to="/" 
-              className={`flex items-center justify-center space-x-3 font-playfair text-2xl font-bold transition-colors ${
+              className={`flex items-center space-x-3 font-playfair text-sm md:text-2xl font-bold transition-colors ${
                 isScrolled ? 'text-primary hover:text-accent' : 'text-white hover:text-accent'
               }`}
             >
