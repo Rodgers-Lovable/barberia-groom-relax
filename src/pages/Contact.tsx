@@ -11,65 +11,81 @@ import Footer from "@/components/layout/Footer";
 import { OperatingHours } from "@/components/OperatingHours";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import {
+  EMAILJS_CONTACT_SERVICE_ID,
+  EMAILJS_CONTACT_TEMPLATE_ID,
+  EMAILJS_PUBLIC_KEY,
+} from "@/config/env";
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    subject: "",
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simple form validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
       toast({
         title: "Please fill in all fields",
         description: "All fields are required to submit your message.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
 
     try {
       // EmailJS configuration - replace these with your actual values
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_CONTACT_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
 
       const templateParams = {
-        to_name: 'Baberia Cuts Platinum',
+        to_name: "Baberia Cuts Platinum",
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        reply_to: formData.email
+        subject: formData.subject,
+        reply_to: formData.email,
       };
 
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      
+      await emailjs.send(
+        EMAILJS_CONTACT_SERVICE_ID,
+        EMAILJS_CONTACT_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
       });
 
       // Reset form
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error("EmailJS error:", error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact us directly.",
-        variant: "destructive"
+        variant: "destructive",
       });
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -77,30 +93,30 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Our Location",
-      details: ["Pension Towers, Loita Street", "Nairobi CBD, Kenya"]
+      details: ["Pension Towers, Loita Street", "Nairobi CBD, Kenya"],
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+254 123 456 789", "+254 987 654 321"]
+      details: ["+254 779431913"],
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@baberiacuts.co.ke", "bookings@baberiacuts.co.ke"]
-    }
+      details: ["info@baberiacuts.co.ke", "bookings@baberiacuts.co.ke"],
+    },
   ];
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -110,11 +126,15 @@ const Contact = () => {
               Contact Baberia Cuts Platinum
             </Badge>
             <h1 className="heading-hero text-white">
-              Visit Nairobi's Premier <span className="text-gradient-gold">Grooming & Wellness Center</span>
+              Visit Nairobi's Premier{" "}
+              <span className="text-gradient-gold">
+                Grooming & Wellness Center
+              </span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Ready to experience Nairobi's finest grooming and wellness services at Pension Towers, Loita Street? 
-              Contact Baberia Cuts Platinum today to book your appointment at our premium facility in Nairobi CBD.
+              Ready to experience Nairobi's finest grooming and wellness
+              service? Contact <strong>Baberia Cuts Platinum</strong> today to book your
+              appointment at our premium facility
             </p>
           </div>
         </div>
@@ -124,18 +144,21 @@ const Contact = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
             {/* Contact Form */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="outline" className="text-primary border-primary/30">
+                <Badge
+                  variant="outline"
+                  className="text-primary border-primary/30"
+                >
                   Send us a message
                 </Badge>
                 <h2 className="heading-section text-primary">
                   Let's Start a Conversation
                 </h2>
                 <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  Fill out the form below and we'll get back to you as soon as
+                  possible.
                 </p>
               </div>
 
@@ -146,9 +169,16 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    noValidate
+                    className="space-y-6"
+                  >
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-primary font-medium">
+                      <Label
+                        htmlFor="name"
+                        className="text-primary font-medium"
+                      >
                         Full Name *
                       </Label>
                       <Input
@@ -164,7 +194,10 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-primary font-medium">
+                      <Label
+                        htmlFor="email"
+                        className="text-primary font-medium"
+                      >
                         Email Address *
                       </Label>
                       <Input
@@ -180,7 +213,10 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message" className="text-primary font-medium">
+                      <Label
+                        htmlFor="message"
+                        className="text-primary font-medium"
+                      >
                         Message *
                       </Label>
                       <Textarea
@@ -206,14 +242,18 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="outline" className="text-primary border-primary/30">
+                <Badge
+                  variant="outline"
+                  className="text-primary border-primary/30"
+                >
                   Contact Information
                 </Badge>
                 <h2 className="heading-section text-primary">
                   Visit Our Location
                 </h2>
                 <p className="text-muted-foreground">
-                  Find us in the heart of Nairobi CBD, easily accessible and ready to serve you.
+                  Find us in the heart of Nairobi CBD, easily accessible and
+                  ready to serve you.
                 </p>
               </div>
 
@@ -233,7 +273,10 @@ const Contact = () => {
                             </h3>
                             <div className="space-y-1">
                               {info.details.map((detail, index) => (
-                                <p key={index} className="text-muted-foreground">
+                                <p
+                                  key={index}
+                                  className="text-muted-foreground"
+                                >
                                   {detail}
                                 </p>
                               ))}
@@ -244,7 +287,7 @@ const Contact = () => {
                     </Card>
                   );
                 })}
-                
+
                 {/* Operating Hours Card */}
                 <OperatingHours variant="table" showLocation={true} />
               </div>
@@ -260,15 +303,13 @@ const Contact = () => {
             <Badge variant="outline" className="text-primary border-primary/30">
               Find Us
             </Badge>
-            <h2 className="heading-section text-primary">
-              Our Location
-            </h2>
+            <h2 className="heading-section text-primary">Our Location</h2>
           </div>
 
           <Card className="card-premium overflow-hidden">
             <div className="aspect-video bg-background">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8174966506885!2d36.81910991475338!3d-1.2884370990629724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d22c5e0000%3A0x0!2zMcKwMTcnMTguNCJTIDM2wrA0OSczNC4yIkU!5e0!3m2!1sen!2ske!4v1234567890123"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5188.578514990373!2d36.81518307602585!3d-1.2836049356253845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d3d86cf0b5%3A0x788a99b304b7766f!2sBaberia%20Cuts%20Barbershop!5e1!3m2!1sen!2ske!4v1754065159832!5m2!1sen!2ske"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -293,17 +334,18 @@ const Contact = () => {
               Don't Wait - Transform Today
             </h2>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Skip the wait and book your appointment now. Experience the Baberia Cuts Platinum difference.
+              Skip the wait and book your appointment now. Experience the
+              Baberia Cuts Platinum difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="btn-premium text-lg px-8 py-4">
                 Book Appointment
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
               >
-                Call Now: +254 123 456 789
+                Call Now: +254 779 431 913
               </Button>
             </div>
           </div>
