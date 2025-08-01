@@ -11,18 +11,11 @@ const Footer = () => {
     { name: "Waxing", href: "/services/waxing" },
   ];
 
-  const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/team" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Blog", href: "/blog" },
-  ];
 
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand Section */}
           <div className="space-y-6">
             <Link 
@@ -65,22 +58,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-6">
-            <h3 className="font-playfair text-lg font-semibold text-primary">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.href}
-                    className="text-secondary-foreground/80 hover:text-accent transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Contact Info */}
           <div className="space-y-6">
@@ -113,12 +90,15 @@ const Footer = () => {
                   info@baberiacuts.co.ke
                 </a>
               </div>
+              
+              <div className="flex items-center space-x-3">
+                <Clock className="h-5 w-5 text-accent flex-shrink-0" />
+                <div className="text-secondary-foreground/80">
+                  <p>Mon-Sat: 8:00 AM – 8:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          {/* Operating Hours */}
-          <div className="space-y-6">
-            <OperatingHours showLocation={false} />
           </div>
         </div>
 

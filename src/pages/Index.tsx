@@ -54,22 +54,6 @@ const Index = () => {
       features: ["Platinum Hotstone", "Swedish Massage", "Deep Tissue", "Aromatherapy"],
       image: heroSpa
     },
-    {
-      icon: Sparkles,
-      title: "FACIAL",
-      description: "Advanced facial treatments for healthy, glowing skin",
-      href: "/services/facial",
-      features: ["Platinum Hydrating", "Anti-aging", "Mini Facial", "Steaming"],
-      image: heroSpa
-    },
-    {
-      icon: Zap,
-      title: "WAXING",
-      description: "Professional waxing services for smooth, hair-free skin",
-      href: "/services/waxing",
-      features: ["Brazilian", "Chest", "Leg Waxing", "Bikini"],
-      image: heroBarbershop
-    }
   ];
 
   const stats = [
