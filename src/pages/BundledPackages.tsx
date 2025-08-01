@@ -104,22 +104,14 @@ const BundledPackages = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-secondary to-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0">
-          <div className="flex">
-            <img 
-              src={heroBarbershop} 
-              alt="Barbershop services"
-              className="w-1/2 h-full object-cover opacity-20"
-            />
-            <img 
-              src={heroSpa} 
-              alt="Spa services"
-              className="w-1/2 h-full object-cover opacity-20"
-            />
-          </div>
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">

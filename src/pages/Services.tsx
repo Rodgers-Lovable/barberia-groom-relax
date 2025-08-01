@@ -62,19 +62,25 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-secondary to-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">
               Our Services
             </Badge>
-            <h1 className="heading-hero text-primary-foreground">
+            <h1 className="heading-hero text-white">
               Where Style Meets <span className="text-gradient-gold">Serenity</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
               Experience the unique combination of expert barbering and luxury spa treatments. 
-              From precision cuts to therapeutic massages, we offer comprehensive grooming and wellness services.
+              From precision cuts to therapeutic massages, we offer comprehensive grooming and wellness services in Nairobi CBD.
             </p>
           </div>
         </div>

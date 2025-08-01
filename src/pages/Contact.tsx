@@ -81,17 +81,23 @@ const Contact = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-secondary to-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">
               Contact Barberia Cuts Nairobi
             </Badge>
-            <h1 className="heading-hero text-primary-foreground">
+            <h1 className="heading-hero text-white">
               Visit Nairobi's Premier <span className="text-gradient-gold">Barbershop & Spa</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
               Ready to experience Nairobi's finest grooming and wellness services at Pension Towers, Loita Street? 
               Contact us today to book your appointment at our top-rated barbershop and spa in Nairobi CBD.
             </p>
