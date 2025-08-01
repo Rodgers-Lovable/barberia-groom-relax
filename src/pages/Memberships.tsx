@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { Crown, Scissors, Sparkles, Users, Gift, Calendar, Phone, DollarSign, Star } from "lucide-react";
 import heroBarbershop from "@/assets/hero-barbershop.jpg";
+import heroBarberInterior from "@/assets/hero-barbershop-interior.jpg";
 
 const Memberships = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -122,7 +123,7 @@ const Memberships = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url(${heroBarberInterior})`
           }}
         />
         <div className="absolute inset-0 bg-black/50" />

@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Scissors, Heart, Users, Award, Target, Clock } from "lucide-react";
 import heroBarberShop from "@/assets/hero-barbershop.jpg";
+import barberInAction from "@/assets/barber-in-action.jpg";
 
 const About = () => {
   const values = [
@@ -47,19 +48,25 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-secondary to-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${barberInAction})`
+          }}
+        />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">
-              About Barberia Cuts
+              About Barberia Cuts Nairobi
             </Badge>
-            <h1 className="heading-hero text-primary-foreground">
+            <h1 className="heading-hero text-white">
               Where Tradition Meets <span className="text-gradient-gold">Innovation</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
-              Founded on the belief that every man deserves to look and feel his best, 
-              Barberia Cuts combines classic barbering techniques with modern spa wellness.
+            <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+              Founded on the belief that every man deserves to look and feel his best in Nairobi, 
+              Barberia Cuts combines classic barbering techniques with modern spa wellness at Pension Towers, Loita Street.
             </p>
           </div>
         </div>

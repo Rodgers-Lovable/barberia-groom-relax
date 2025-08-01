@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { Waves, Clock, Heart, Sparkles, Users, Droplets } from "lucide-react";
 import heroSpa from "@/assets/hero-spa.jpg";
+import heroSpaInterior from "@/assets/hero-spa-interior.jpg";
 
 const MassageAndSpa = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -78,7 +79,7 @@ const MassageAndSpa = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url(${heroSpaInterior})`
           }}
         />
         <div className="absolute inset-0 bg-black/40" />

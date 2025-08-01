@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { Scissors, Waves, Gift, Star, ArrowRight, Clock, DollarSign } from "lucide-react";
 import heroBarbershop from "@/assets/hero-barbershop.jpg";
 import heroSpa from "@/assets/hero-spa.jpg";
+import groomingSpaTools from "@/assets/grooming-spa-tools.jpg";
 
 const Services = () => {
   const serviceCategories = [
@@ -66,7 +67,7 @@ const Services = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url(${groomingSpaTools})`
           }}
         />
         <div className="absolute inset-0 bg-black/60" />

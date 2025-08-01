@@ -8,6 +8,7 @@ import { BookingModal } from "@/components/booking/BookingModal";
 import { Gift, Clock, DollarSign, Star, Users, Heart, Sparkles } from "lucide-react";
 import heroBarbershop from "@/assets/hero-barbershop.jpg";
 import heroSpa from "@/assets/hero-spa.jpg";
+import heroBarberInterior from "@/assets/hero-barbershop-interior.jpg";
 
 const BundledPackages = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -108,7 +109,7 @@ const BundledPackages = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url(${heroBarberInterior})`
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
