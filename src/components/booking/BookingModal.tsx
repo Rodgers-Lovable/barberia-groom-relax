@@ -12,6 +12,7 @@ import { CalendarIcon, Clock, User, Phone, Mail, MessageSquare } from "lucide-re
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { OperatingHours } from "@/components/OperatingHours";
+import emailjs from "@emailjs/browser";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -123,31 +124,57 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
     "Hot Towel Treatment (+15min)"
   ];
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Basic validation
     if (!formData.name || !formData.phone || !formData.serviceCategory || !formData.date || !formData.time) {
       toast.error("Please fill in all required fields");
       return;
     }
 
-    // Here you would typically send to your booking system
-    toast.success("Booking request submitted! We'll confirm your appointment within 2 hours.");
-    onClose();
-    
-    // Reset form
-    setStep(1);
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      serviceCategory: "",
-      specificService: "",
-      provider: "",
-      date: undefined,
-      time: "",
-      addOns: [],
-      notes: "",
-    });
+    try {
+      // EmailJS configuration - replace these with your actual values
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_BOOKING_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
+
+      const templateParams = {
+        to_name: 'Baberia Cuts Platinum',
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        service_category: formData.serviceCategory,
+        specific_service: formData.specificService,
+        preferred_provider: formData.provider || 'Any Available',
+        appointment_date: formData.date ? format(formData.date, "PPP") : '',
+        appointment_time: formData.time,
+        add_ons: formData.addOns.join(', ') || 'None',
+        special_notes: formData.notes || 'None',
+        message: `New booking request from ${formData.name}. Service: ${formData.specificService} on ${formData.date ? format(formData.date, "PPP") : ''} at ${formData.time}.`
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      toast.success("Booking request submitted! We'll confirm your appointment within 2 hours.");
+      onClose();
+      
+      // Reset form
+      setStep(1);
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        serviceCategory: "",
+        specificService: "",
+        provider: "",
+        date: undefined,
+        time: "",
+        addOns: [],
+        notes: "",
+      });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast.error("Failed to submit booking request. Please try again or call us directly.");
+    }
   };
 
   const handleAddOnToggle = (addOn: string) => {
