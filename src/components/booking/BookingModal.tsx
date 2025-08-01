@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import { CalendarIcon, Clock, User, Phone, Mail, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { OperatingHours } from "@/components/OperatingHours";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -33,31 +34,69 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
   });
 
   const serviceCategories = {
-    barbershop: "Barbershop Services",
-    spa: "Massage & Spa",
+    haircut: "HAIRCUT",
+    nailcare: "NAIL CARE", 
+    massage: "MASSAGE",
+    facial: "FACIAL",
+    waxing: "WAXING",
     package: "Premium Packages"
   };
 
   const services = {
-    barbershop: [
-      "Classic Cut - 45min",
-      "Fade Cut - 45min", 
-      "Beard Trim - 30min",
-      "Full Shave - 45min",
-      "Kids Cut - 30min"
+    haircut: [
+      "Platinum Haircut - KES 1,500",
+      "Platinum Fade - KES 2,000", 
+      "Royal Shave - KES 2,000",
+      "Beard Trim - KES 1,000",
+      "Beard Trim & Dye - KES 1,500",
+      "Styling - KES 1,000",
+      "Kids Cut - KES 1,000",
+      "Hair Dye Black - KES 1,500",
+      "Hair Dye Colored - KES 4,000",
+      "Texturizing - KES 1,000",
+      "Treatment - KES 1,000"
     ],
-    spa: [
-      "Swedish Massage - 60min",
-      "Deep Tissue - 60min",
-      "Hot Stone - 90min",
-      "Shoulder & Neck - 30min",
-      "Full Body Relaxation - 90min"
+    nailcare: [
+      "Platinum Footcare - KES 2,500",
+      "Platinum Handcare - KES 1,500",
+      "Platinum Nail Maintenance - KES 1,000",
+      "Platinum Cut & File Feet - KES 1,000",
+      "Pedicure Mask - KES 1,000",
+      "Paraffin Wax - KES 1,000"
+    ],
+    massage: [
+      "Platinum Hotstone Massage - KES 6,000",
+      "Back Massage - KES 2,500",
+      "Foot Massage - KES 1,000",
+      "Head & Shoulder Massage - KES 1,000",
+      "Hand Massage - KES 500",
+      "Body Wrap/Mask - KES 4,000",
+      "Steam Bath - KES 2,500",
+      "Body Scrub - KES 3,000",
+      "Platinum Swedish Massage - KES 4,500",
+      "Platinum Deep Tissue Massage - KES 5,000",
+      "Platinum Aromatherapy Massage - KES 5,500"
+    ],
+    facial: [
+      "Steaming - KES 1,500",
+      "Mask - KES 1,500",
+      "Scrub - KES 1,500",
+      "Platinum Hydrating Facial - KES 4,000",
+      "Platinum Antiaging Facial - KES 4,500",
+      "Mini Facial - KES 2,000"
+    ],
+    waxing: [
+      "Armpit - KES 1,000",
+      "Chest - KES 1,500",
+      "Back - KES 1,500",
+      "Leg Waxing - KES 1,500",
+      "Bikini Waxing - KES 2,500",
+      "Brazilian Waxing - KES 3,000"
     ],
     package: [
-      "Groom & Relax Combo",
-      "Executive Reset Package",
-      "Couples Retreat",
-      "Father & Son Grooming"
+      "Groom & Relax - KES 5,500",
+      "Executive Reset - KES 7,000",
+      "Platinum Wellness - KES 10,500"
     ]
   };
 
@@ -125,7 +164,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="font-playfair text-2xl text-primary">
-            Book Your Appointment
+            Book Your Appointment at Baberia Cuts Platinum
           </DialogTitle>
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
             <div className={`w-2 h-2 rounded-full ${step >= 1 ? 'bg-accent' : 'bg-muted'}`} />
@@ -134,6 +173,11 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
             <span>Service Selection</span>
             <div className={`w-2 h-2 rounded-full ${step >= 3 ? 'bg-accent' : 'bg-muted'}`} />
             <span>Date & Time</span>
+          </div>
+          
+          {/* Operating Hours in Booking Modal */}
+          <div className="pt-4">
+            <OperatingHours variant="compact" showLocation={false} />
           </div>
         </DialogHeader>
 

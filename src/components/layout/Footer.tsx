@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { Scissors, Phone, Mail, MapPin, Clock, Instagram, Facebook, Twitter } from "lucide-react";
+import { OperatingHours } from "@/components/OperatingHours";
 
 const Footer = () => {
   const services = [
-    { name: "Classic Cuts", href: "/services/barbershop" },
-    { name: "Beard Styling", href: "/services/barbershop" },
-    { name: "Deep Tissue Massage", href: "/services/spa" },
-    { name: "Hot Stone Therapy", href: "/services/spa" },
-    { name: "Groom & Relax Combo", href: "/services/packages" },
+    { name: "Haircut", href: "/services/haircut" },
+    { name: "Nail Care", href: "/services/nail-care" },
+    { name: "Massage", href: "/services/massage" },
+    { name: "Facial", href: "/services/facial" },
+    { name: "Waxing", href: "/services/waxing" },
   ];
 
   const quickLinks = [
@@ -21,7 +22,7 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="space-y-6">
             <Link 
@@ -29,7 +30,7 @@ const Footer = () => {
               className="flex items-center space-x-3 font-playfair text-2xl font-bold text-accent"
             >
               <Scissors className="h-8 w-8" />
-              <span>Barberia Cuts</span>
+              <span>Baberia Cuts Platinum</span>
             </Link>
             <p className="text-secondary-foreground/80 leading-relaxed">
               Premium grooming and relaxation experience combining expert barbering with luxury spa services. Where style meets serenity.
@@ -88,8 +89,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-secondary-foreground/80">123 Style Street</p>
-                  <p className="text-secondary-foreground/80">Nairobi CBD, Kenya</p>
+                  <p className="text-secondary-foreground/80">Pension Towers</p>
+                  <p className="text-secondary-foreground/80">Loita Street, Nairobi</p>
                 </div>
               </div>
               
@@ -106,28 +107,25 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
                 <a 
-                  href="mailto:info@barberiacuts.com" 
+                  href="mailto:info@baberiacuts.co.ke" 
                   className="text-secondary-foreground/80 hover:text-accent transition-colors"
                 >
-                  info@barberiacuts.com
+                  info@baberiacuts.co.ke
                 </a>
               </div>
-              
-              <div className="flex items-start space-x-3">
-                <Clock className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                <div className="text-secondary-foreground/80">
-                  <p>Mon-Fri: 8AM-8PM</p>
-                  <p>Sat-Sun: 9AM-7PM</p>
-                </div>
-              </div>
             </div>
+          </div>
+
+          {/* Operating Hours */}
+          <div className="space-y-6">
+            <OperatingHours showLocation={false} />
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-secondary-foreground/80 text-sm">
-            © 2024 Barberia Cuts. All rights reserved.
+            © 2024 Baberia Cuts Platinum. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <Link to="/privacy" className="text-secondary-foreground/80 hover:text-accent transition-colors">

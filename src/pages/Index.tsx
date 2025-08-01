@@ -5,16 +5,21 @@ import { Badge } from "@/components/ui/badge";
 import { BookingModal } from "@/components/booking/BookingModal";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { OperatingHours } from "@/components/OperatingHours";
 import { 
   Scissors, 
-  Waves, 
+  Hand,
+  Heart,
+  Sparkles,
+  Zap,
   Clock, 
   Users, 
   Star, 
   CheckCircle, 
   Award,
   ArrowRight,
-  Play
+  Play,
+  Waves
 } from "lucide-react";
 import heroBarbershop from "@/assets/hero-barbershop.jpg";
 import heroSpa from "@/assets/hero-spa.jpg";
@@ -27,17 +32,43 @@ const Index = () => {
   const services = [
     {
       icon: Scissors,
-      title: "Expert Barbering",
-      description: "Classic cuts, modern fades, and precision styling by master barbers",
-      features: ["Classic & Modern Cuts", "Beard Sculpting", "Hot Towel Shaves", "Kids Cuts"],
+      title: "HAIRCUT",
+      description: "Premium haircuts and styling services with precision and artistry",
+      href: "/services/haircut",
+      features: ["Platinum Haircut", "Platinum Fade", "Royal Shave", "Beard Trim"],
       image: heroBarbershop
     },
     {
-      icon: Waves,
-      title: "Luxury Spa",
-      description: "Deep relaxation and therapeutic massage treatments",
-      features: ["Swedish Massage", "Deep Tissue", "Hot Stone Therapy", "Aromatherapy"],
+      icon: Hand,
+      title: "NAIL CARE",
+      description: "Professional nail care and maintenance for hands and feet",
+      href: "/services/nail-care",
+      features: ["Platinum Footcare", "Platinum Handcare", "Pedicure Mask", "Paraffin Wax"],
       image: heroSpa
+    },
+    {
+      icon: Heart,
+      title: "MASSAGE",
+      description: "Therapeutic and relaxation massage treatments for ultimate wellness",
+      href: "/services/massage",
+      features: ["Platinum Hotstone", "Swedish Massage", "Deep Tissue", "Aromatherapy"],
+      image: heroSpa
+    },
+    {
+      icon: Sparkles,
+      title: "FACIAL",
+      description: "Advanced facial treatments for healthy, glowing skin",
+      href: "/services/facial",
+      features: ["Platinum Hydrating", "Anti-aging", "Mini Facial", "Steaming"],
+      image: heroSpa
+    },
+    {
+      icon: Zap,
+      title: "WAXING",
+      description: "Professional waxing services for smooth, hair-free skin",
+      href: "/services/waxing",
+      features: ["Brazilian", "Chest", "Leg Waxing", "Bikini"],
+      image: heroBarbershop
     }
   ];
 
@@ -75,25 +106,25 @@ const Index = () => {
   const packages = [
     {
       name: "Groom & Relax",
-      description: "Haircut + 60min Swedish Massage",
-      price: "KSh 4,500",
-      originalPrice: "KSh 5,300",
-      savings: "Save 15%",
+      description: "Platinum Haircut + Swedish Massage",
+      price: "KES 5,500",
+      originalPrice: "KES 6,000",
+      savings: "Save 8%",
       popular: true
     },
     {
       name: "Executive Reset",
-      description: "Beard care + Facial + Back massage",
-      price: "KSh 3,800",
-      originalPrice: "KSh 4,500",
-      savings: "Save 16%"
+      description: "Royal Shave + Platinum Facial + Back Massage",
+      price: "KES 7,000",
+      originalPrice: "KES 8,500",
+      savings: "Save 18%"
     },
     {
-      name: "Father & Son",
-      description: "Two cuts + shared experience",
-      price: "KSh 3,200",
-      originalPrice: "KSh 4,000",
-      savings: "Save 20%"
+      name: "Platinum Wellness",
+      description: "Platinum Haircut + Hotstone Massage + Facial",
+      price: "KES 10,500",
+      originalPrice: "KES 12,500",
+      savings: "Save 16%"
     }
   ];
 
@@ -122,7 +153,7 @@ const Index = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Barberia Cuts - Nairobi's premium grooming experience. Where master craftsmanship meets luxury wellness at Pension Towers, Loita Street.
+              Baberia Cuts Platinum - Nairobi's premium grooming experience. Where master craftsmanship meets luxury wellness at Pension Towers, Loita Street.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -142,9 +173,8 @@ const Index = () => {
               </Button>
             </div>
             
-            <div className="flex items-center justify-center space-x-4 pt-4 text-white/80">
-              <Clock className="h-4 w-4" />
-              <span className="text-sm">Open Today: 8AM - 8PM</span>
+            <div className="pt-4">
+              <OperatingHours variant="compact" showLocation={false} className="justify-center text-white/80" />
             </div>
           </div>
         </div>
@@ -166,11 +196,11 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={service.title} className="card-service overflow-hidden">
+                <Card key={service.title} className="card-service overflow-hidden group">
                   <div className="relative h-64">
                     <img 
                       src={service.image} 
@@ -326,7 +356,7 @@ const Index = () => {
               Ready to Experience the Difference?
             </h2>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Join thousands of satisfied clients who trust us with their grooming and relaxation needs in Nairobi CBD. 
+              Join thousands of satisfied clients who trust Baberia Cuts Platinum with their grooming and relaxation needs in Nairobi CBD. 
               Book your appointment today and discover why we're Nairobi's premier destination for style and serenity at Pension Towers, Loita Street.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

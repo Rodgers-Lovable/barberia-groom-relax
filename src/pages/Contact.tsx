@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { OperatingHours } from "@/components/OperatingHours";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const Contact = () => {
@@ -51,13 +52,8 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Barbershop Location",
-      details: ["Pension Towers, Loita Street", "1st Floor, Nairobi CBD"]
-    },
-    {
-      icon: MapPin,
-      title: "Massage & Spa Location", 
-      details: ["Pension Towers, Loita Street", "2nd Floor, Nairobi CBD"]
+      title: "Our Location",
+      details: ["Pension Towers, Loita Street", "Nairobi CBD, Kenya"]
     },
     {
       icon: Phone,
@@ -67,12 +63,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@barberiacuts.co.ke", "bookings@barberiacuts.co.ke"]
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      details: ["Mon-Fri: 8:00 AM - 8:00 PM", "Sat-Sun: 9:00 AM - 6:00 PM"]
+      details: ["info@baberiacuts.co.ke", "bookings@baberiacuts.co.ke"]
     }
   ];
 
@@ -92,14 +83,14 @@ const Contact = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">
-              Contact Barberia Cuts Nairobi
+              Contact Baberia Cuts Platinum
             </Badge>
             <h1 className="heading-hero text-white">
-              Visit Nairobi's Premier <span className="text-gradient-gold">Barbershop & Spa</span>
+              Visit Nairobi's Premier <span className="text-gradient-gold">Grooming & Wellness Center</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
               Ready to experience Nairobi's finest grooming and wellness services at Pension Towers, Loita Street? 
-              Contact us today to book your appointment at our top-rated barbershop and spa in Nairobi CBD.
+              Contact Baberia Cuts Platinum today to book your appointment at our premium facility in Nairobi CBD.
             </p>
           </div>
         </div>
@@ -229,6 +220,9 @@ const Contact = () => {
                     </Card>
                   );
                 })}
+                
+                {/* Operating Hours Card */}
+                <OperatingHours variant="table" showLocation={true} />
               </div>
             </div>
           </div>
@@ -257,7 +251,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Barberia Cuts Location - Pension Towers, Loita Street"
+                title="Baberia Cuts Platinum - Pension Towers, Loita Street"
               ></iframe>
             </div>
           </Card>
@@ -275,7 +269,7 @@ const Contact = () => {
               Don't Wait - Transform Today
             </h2>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Skip the wait and book your appointment now. Experience the Barberia Cuts difference.
+              Skip the wait and book your appointment now. Experience the Baberia Cuts Platinum difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="btn-premium text-lg px-8 py-4">
