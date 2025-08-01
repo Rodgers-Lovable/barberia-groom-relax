@@ -122,7 +122,7 @@ const Index = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Where master craftsmanship meets luxury wellness. Experience the perfect blend of precision barbering and therapeutic relaxation.
+              Barberia Cuts - Nairobi's premium grooming experience. Where master craftsmanship meets luxury wellness at Pension Towers, Loita Street.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -158,11 +158,11 @@ const Index = () => {
               Our Services
             </Badge>
             <h2 className="heading-section text-primary">
-              Dual Expertise, Single Location
+              Top-Rated Barbershop & Spa in Nairobi
             </h2>
             <p className="text-premium max-w-2xl mx-auto">
-              Experience the unique combination of expert barbering and luxury spa treatments under one roof. 
-              Our skilled professionals deliver exceptional results in both grooming and relaxation.
+              Experience the unique combination of expert barbering and luxury spa treatments under one roof in Nairobi CBD. 
+              Our skilled professionals deliver exceptional results in both grooming and relaxation at Pension Towers.
             </p>
           </div>
 
@@ -326,8 +326,8 @@ const Index = () => {
               Ready to Experience the Difference?
             </h2>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Join thousands of satisfied clients who trust us with their grooming and relaxation needs. 
-              Book your appointment today and discover why we're Nairobi's premier destination for style and serenity.
+              Join thousands of satisfied clients who trust us with their grooming and relaxation needs in Nairobi CBD. 
+              Book your appointment today and discover why we're Nairobi's premier destination for style and serenity at Pension Towers, Loita Street.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 

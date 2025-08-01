@@ -123,14 +123,14 @@ const BundledPackages = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">
-              Bundled Packages
+              Grooming & Wellness Packages Nairobi
             </Badge>
             <h1 className="heading-hero text-primary-foreground">
-              Complete <span className="text-gradient-gold">Experiences</span> in One Package
+              Complete Grooming & Wellness <span className="text-gradient-gold">Packages</span> in Nairobi
             </h1>
             <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
-              Combine the precision of expert barbering with the relaxation of therapeutic massage. 
-              Save money while enjoying a complete grooming and wellness experience.
+              Combine the precision of expert barbering with therapeutic massage at Nairobi's premier grooming destination. 
+              Save money while enjoying complete grooming and wellness experiences at Pension Towers, Loita Street.
             </p>
             <Button 
               onClick={() => setIsBookingOpen(true)}

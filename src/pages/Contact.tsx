@@ -86,14 +86,14 @@ const Contact = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <Badge className="bg-accent/20 text-accent border-accent/30">
-              Get In Touch
+              Contact Barberia Cuts Nairobi
             </Badge>
             <h1 className="heading-hero text-primary-foreground">
-              Ready to Look <span className="text-gradient-gold">Sharp?</span>
+              Visit Nairobi's Premier <span className="text-gradient-gold">Barbershop & Spa</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
-              Have questions about our services? Want to book an appointment? 
-              We're here to help you achieve your perfect look and ultimate relaxation.
+              Ready to experience Nairobi's finest grooming and wellness services at Pension Towers, Loita Street? 
+              Contact us today to book your appointment at our top-rated barbershop and spa in Nairobi CBD.
             </p>
           </div>
         </div>
