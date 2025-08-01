@@ -31,17 +31,17 @@ const Footer = () => {
               <Scissors className="h-8 w-8" />
               <span>Barberia Cuts</span>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-secondary-foreground/80 leading-relaxed">
               Premium grooming and relaxation experience combining expert barbering with luxury spa services. Where style meets serenity.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+              <a href="#" className="text-secondary-foreground/70 hover:text-accent transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+              <a href="#" className="text-secondary-foreground/70 hover:text-accent transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+              <a href="#" className="text-secondary-foreground/70 hover:text-accent transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -55,7 +55,7 @@ const Footer = () => {
                 <li key={service.name}>
                   <Link 
                     to={service.href}
-                    className="text-muted-foreground hover:text-accent transition-colors"
+                    className="text-secondary-foreground/80 hover:text-accent transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -72,7 +72,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link 
                     to={link.href}
-                    className="text-muted-foreground hover:text-accent transition-colors"
+                    className="text-secondary-foreground/80 hover:text-accent transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -88,8 +88,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-muted-foreground">123 Style Street</p>
-                  <p className="text-muted-foreground">Nairobi CBD, Kenya</p>
+                  <p className="text-secondary-foreground/80">123 Style Street</p>
+                  <p className="text-secondary-foreground/80">Nairobi CBD, Kenya</p>
                 </div>
               </div>
               
@@ -97,7 +97,7 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
                 <a 
                   href="tel:+254123456789" 
-                  className="text-muted-foreground hover:text-accent transition-colors"
+                  className="text-secondary-foreground/80 hover:text-accent transition-colors"
                 >
                   +254 123 456 789
                 </a>
@@ -107,7 +107,7 @@ const Footer = () => {
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
                 <a 
                   href="mailto:info@barberiacuts.com" 
-                  className="text-muted-foreground hover:text-accent transition-colors"
+                  className="text-secondary-foreground/80 hover:text-accent transition-colors"
                 >
                   info@barberiacuts.com
                 </a>
@@ -115,7 +115,7 @@ const Footer = () => {
               
               <div className="flex items-start space-x-3">
                 <Clock className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                <div className="text-muted-foreground">
+                <div className="text-secondary-foreground/80">
                   <p>Mon-Fri: 8AM-8PM</p>
                   <p>Sat-Sun: 9AM-7PM</p>
                 </div>
@@ -126,14 +126,14 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-secondary-foreground/80 text-sm">
             © 2024 Barberia Cuts. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <Link to="/privacy" className="text-muted-foreground hover:text-accent transition-colors">
+            <Link to="/privacy" className="text-secondary-foreground/80 hover:text-accent transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-muted-foreground hover:text-accent transition-colors">
+            <Link to="/terms" className="text-secondary-foreground/80 hover:text-accent transition-colors">
               Terms of Service
             </Link>
           </div>
