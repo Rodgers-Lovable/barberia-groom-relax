@@ -170,7 +170,7 @@ const Header = () => {
       <div className="lg:hidden fixed bottom-6 right-6 z-50">
         <Button 
           onClick={() => setIsBookingOpen(true)}
-          className="btn-premium rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
+          className="btn-premium rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse-slow"
         >
           <Calendar className="h-6 w-6" />
         </Button>
