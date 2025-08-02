@@ -69,7 +69,7 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Email server error:", error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact us directly.",
