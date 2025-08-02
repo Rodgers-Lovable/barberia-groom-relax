@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookingModal } from "@/components/booking/BookingModal";
@@ -28,6 +29,8 @@ import toolsArrangement from "@/assets/tools-arrangement.jpg";
 
 const Index = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  
+  useScrollAnimation();
 
   const services = [
     {
@@ -167,7 +170,7 @@ const Index = () => {
       {/* Services Overview */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-16 space-y-4 section-animate">
             <Badge variant="outline" className="text-primary border-primary/30">
               Our Services
             </Badge>
@@ -184,12 +187,12 @@ const Index = () => {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={service.title} className="card-service overflow-hidden group">
+                <Card key={service.title} className="card-service overflow-hidden group hover-grow section-animate" style={{animationDelay: `${index * 0.1}s`}}>
                   <div className="relative h-64">
                     <img 
                       src={service.image} 
                       alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 text-white">
@@ -227,11 +230,11 @@ const Index = () => {
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => {
+            {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={stat.label} className="text-center space-y-2">
-                  <Icon className="h-8 w-8 text-accent mx-auto" />
+                <div key={stat.label} className="text-center space-y-2 section-animate hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
+                  <Icon className="h-8 w-8 text-accent mx-auto animate-bounce-subtle" />
                   <div className="font-playfair text-3xl font-bold">{stat.value}</div>
                   <div className="text-primary-foreground/80">{stat.label}</div>
                 </div>
@@ -244,7 +247,7 @@ const Index = () => {
       {/* Featured Packages */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-16 space-y-4 section-animate">
             <Badge variant="outline" className="text-accent border-accent/30">
               Special Packages
             </Badge>
@@ -258,10 +261,10 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
-              <Card key={pkg.name} className={`card-premium relative ${pkg.popular ? 'border-accent shadow-lg' : ''}`}>
+            {packages.map((pkg, index) => (
+              <Card key={pkg.name} className={`card-premium relative hover-grow section-animate ${pkg.popular ? 'border-accent shadow-lg animate-glow-pulse' : ''}`} style={{animationDelay: `${index * 0.15}s`}}>
                 {pkg.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-accent text-accent-foreground">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-accent text-accent-foreground animate-bounce-subtle">
                     Most Popular
                   </Badge>
                 )}
@@ -295,7 +298,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-16 space-y-4 section-animate">
             <Badge variant="outline" className="text-primary border-primary/30">
               Client Stories
             </Badge>
@@ -305,8 +308,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="card-premium">
+            {testimonials.map((testimonial, index) => (
+              <Card key={testimonial.name} className="card-premium hover-lift section-animate" style={{animationDelay: `${index * 0.2}s`}}>
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center font-semibold">

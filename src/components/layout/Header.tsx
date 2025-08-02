@@ -36,16 +36,16 @@ const Header = () => {
     <>
       {/* Announcement Ribbon - only show when not scrolled */}
       {!isScrolled && (
-        <div className="bg-accent text-accent-foreground text-center py-2 text-sm font-medium animate-pulse">
-          <Calendar className="inline h-4 w-4 mr-2" />
+        <div className="bg-accent text-accent-foreground text-center py-2 text-sm font-medium animate-shimmer">
+          <Calendar className="inline h-4 w-4 mr-2 animate-bounce-subtle" />
           Now Accepting Appointments - Book Today!
         </div>
       )}
 
-      <header className={`fixed ${isScrolled ? 'top-0' : 'top-8'} left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed ${isScrolled ? 'top-0' : 'top-8'} left-0 right-0 z-50 transition-all duration-500 ease-out transform ${
         isScrolled 
-          ? 'bg-background border-b border-border shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-background border-b border-border shadow-lg translate-y-0 opacity-100' 
+          : 'bg-transparent -translate-y-2 opacity-95'
       }`}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-3 items-center h-20">
@@ -106,7 +106,7 @@ const Header = () => {
                 </a>
                 <Button 
                   onClick={() => setIsBookingOpen(true)}
-                  className="btn-premium"
+                  className="btn-premium animate-glow-pulse"
                 >
                   Book Now
                 </Button>
@@ -170,9 +170,9 @@ const Header = () => {
       <div className="lg:hidden fixed bottom-6 right-6 z-50">
         <Button 
           onClick={() => setIsBookingOpen(true)}
-          className="btn-premium rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-400 animate-bounce hover:animate-none"
+          className="btn-premium rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-300 animate-glow-pulse hover:scale-110"
         >
-          <Calendar className="h-6 w-6" />
+          <Calendar className="h-6 w-6 animate-bounce-subtle" />
         </Button>
       </div>
 
