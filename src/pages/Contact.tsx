@@ -16,16 +16,18 @@ import {
   EMAILJS_PUBLIC_KEY,
   EMAILJS_SERVICE_ID,
 } from "@/config/env";
+import { BookingModal } from "@/components/booking/BookingModal";
 
 const Contact = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -58,8 +60,9 @@ const Contact = () => {
       );
 
       // Show success animation
-      const successElement = document.createElement('div');
-      successElement.className = 'fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 animate-fade-in-scale';
+      const successElement = document.createElement("div");
+      successElement.className =
+        "fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 animate-fade-in-scale";
       successElement.innerHTML = `
         <div class="bg-background p-8 rounded-xl shadow-xl text-center animate-bounce-subtle">
           <div class="w-16 h-16 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-4 animate-glow-pulse">
@@ -72,7 +75,7 @@ const Contact = () => {
         </div>
       `;
       document.body.appendChild(successElement);
-      
+
       setTimeout(() => {
         document.body.removeChild(successElement);
       }, 2000);
@@ -250,7 +253,11 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full btn-premium" disabled={isLoading}>
+                    <Button
+                      type="submit"
+                      className="w-full btn-premium"
+                      disabled={isLoading}
+                    >
                       {isLoading ? (
                         <>
                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -367,7 +374,13 @@ const Contact = () => {
               Baberia Cuts Platinum difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button className="btn-premium text-lg px-8 py-4">
+              <Button
+                onClick={() => {
+                  setIsBookingOpen(true);
+                  // setIsMenuOpen(false);
+                }}
+                className="btn-premium text-lg px-8 py-4"
+              >
                 Book Appointment
               </Button>
               <Button
@@ -379,6 +392,11 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
+        <BookingModal
+          isOpen={isBookingOpen}
+          onClose={() => setIsBookingOpen(false)}
+        />
       </section>
 
       <Footer />
