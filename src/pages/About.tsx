@@ -11,7 +11,7 @@ const About = () => {
     {
       icon: Scissors,
       title: "Craftsmanship",
-      description: "Every cut, every shave, every massage is performed with meticulous attention to detail and years of expertise."
+      description: "Every cut, every shave, and every massage is performed with meticulous attention to detail and years of expertise."
     },
     {
       icon: Heart,
