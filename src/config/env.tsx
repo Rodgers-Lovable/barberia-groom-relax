@@ -1,5 +1,6 @@
 export const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-export const EMAILJS_CONTACT_SERVICE_ID = import.meta.env
-  .VITE_EMAILJS_CONTACT_SERVICE_ID;
+export const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 export const EMAILJS_CONTACT_TEMPLATE_ID = import.meta.env
   .VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+export const EMAILJS_BOOKING_TEMPLATE_ID = import.meta.env
+  .VITE_EMAILJS_BOOKING_TEMPLATE_ID;

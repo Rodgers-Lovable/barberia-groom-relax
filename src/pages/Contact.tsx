@@ -12,9 +12,9 @@ import { OperatingHours } from "@/components/OperatingHours";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import {
-  EMAILJS_CONTACT_SERVICE_ID,
   EMAILJS_CONTACT_TEMPLATE_ID,
   EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
 } from "@/config/env";
 
 const Contact = () => {
@@ -22,7 +22,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -30,12 +29,7 @@ const Contact = () => {
     e.preventDefault();
 
     // Simple form validation
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.subject ||
-      !formData.message
-    ) {
+    if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all fields",
         description: "All fields are required to submit your message.",
@@ -45,19 +39,16 @@ const Contact = () => {
     }
 
     try {
-      // EmailJS configuration - replace these with your actual values
-
       const templateParams = {
         to_name: "Baberia Cuts Platinum",
         from_name: formData.name,
         from_email: formData.email,
+        message_type: "feedback",
         message: formData.message,
-        subject: formData.subject,
-        reply_to: formData.email,
       };
 
       await emailjs.send(
-        EMAILJS_CONTACT_SERVICE_ID,
+        EMAILJS_SERVICE_ID,
         EMAILJS_CONTACT_TEMPLATE_ID,
         templateParams,
         EMAILJS_PUBLIC_KEY
@@ -69,7 +60,11 @@ const Contact = () => {
       });
 
       // Reset form
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
     } catch (error) {
       console.error("EmailJS error:", error);
       toast({
@@ -133,8 +128,8 @@ const Contact = () => {
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
               Ready to experience Nairobi's finest grooming and wellness
-              service? Contact <strong>Baberia Cuts Platinum</strong> today to book your
-              appointment at our premium facility
+              service? Contact <strong>Baberia Cuts Platinum</strong> today to
+              book your appointment at our premium facility
             </p>
           </div>
         </div>
