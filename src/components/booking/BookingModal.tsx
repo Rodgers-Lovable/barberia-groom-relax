@@ -213,6 +213,26 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
         EMAILJS_PUBLIC_KEY
       );
 
+      // Show success animation
+      const successElement = document.createElement('div');
+      successElement.className = 'fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 animate-fade-in-scale';
+      successElement.innerHTML = `
+        <div class="bg-background p-8 rounded-xl shadow-xl text-center animate-bounce-subtle">
+          <div class="w-16 h-16 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-4 animate-glow-pulse">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-2">Booking Sent!</h3>
+          <p class="text-muted-foreground">We'll confirm within 2 hours.</p>
+        </div>
+      `;
+      document.body.appendChild(successElement);
+      
+      setTimeout(() => {
+        document.body.removeChild(successElement);
+      }, 2000);
+
       toast.success(
         "Booking request submitted! We'll confirm your appointment within 2 hours."
       );

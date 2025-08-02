@@ -110,12 +110,61 @@ export default {
 					'50%': {
 						opacity: '0.7'
 					}
+				},
+				'shimmer': {
+					'0%': {
+						backgroundPosition: '-200% 0'
+					},
+					'100%': {
+						backgroundPosition: '200% 0'
+					}
+				},
+				'glowPulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px hsl(var(--accent) / 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px hsl(var(--accent) / 0.6), 0 0 60px hsl(var(--accent) / 0.4)'
+					}
+				},
+				'bounceSubtle': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-3px)'
+					}
+				},
+				'slideInStagger': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fadeInScale': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.9)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+				'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'shimmer': 'shimmer 2s ease-in-out infinite',
+				'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+				'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+				'slide-in-stagger': 'slideInStagger 0.6s ease-out forwards',
+				'fade-in-scale': 'fadeInScale 0.5s ease-out forwards'
 			}
 		}
 	},
