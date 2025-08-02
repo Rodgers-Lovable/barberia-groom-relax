@@ -24,7 +24,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
