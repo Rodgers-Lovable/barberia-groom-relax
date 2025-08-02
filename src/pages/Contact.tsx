@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { OperatingHours } from "@/components/OperatingHours";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Loader2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import {
   EMAILJS_CONTACT_TEMPLATE_ID,
@@ -19,6 +19,7 @@ import {
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,6 +38,8 @@ const Contact = () => {
       });
       return;
     }
+
+    setIsLoading(true);
 
     try {
       const templateParams = {
@@ -72,6 +75,8 @@ const Contact = () => {
         description: "Please try again or contact us directly.",
         variant: "destructive",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -225,9 +230,18 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full btn-premium">
-                      Send Message
-                      <Send className="ml-2 h-4 w-4" />
+                    <Button type="submit" className="w-full btn-premium" disabled={isLoading}>
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 h-4 w-4" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

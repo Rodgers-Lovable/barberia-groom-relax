@@ -30,6 +30,7 @@ import {
   Phone,
   Mail,
   MessageSquare,
+  Loader2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -48,6 +49,7 @@ interface BookingModalProps {
 
 export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -181,6 +183,8 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       return;
     }
 
+    setIsLoading(true);
+
     try {
       const templateParams = {
         to_name: "Baberia Cuts Platinum",
@@ -233,6 +237,8 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       toast.error(
         "Failed to submit booking request. Please try again or call us directly."
       );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -533,12 +539,19 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
             </Button>
 
             {step < 3 ? (
-              <Button onClick={() => setStep(step + 1)} className="btn-premium">
+              <Button onClick={() => setStep(step + 1)} className="btn-premium" disabled={isLoading}>
                 Next
               </Button>
             ) : (
-              <Button onClick={handleSubmit} className="btn-premium">
-                Book Appointment
+              <Button onClick={handleSubmit} className="btn-premium" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Booking...
+                  </>
+                ) : (
+                  "Book Appointment"
+                )}
               </Button>
             )}
           </div>
