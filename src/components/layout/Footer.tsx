@@ -19,6 +19,7 @@ import {
   serviceCategories,
   STREET,
 } from "@/config/data";
+import { formatCase } from "@/lib/utils";
 
 const Footer = () => {
   return (
@@ -76,7 +77,7 @@ const Footer = () => {
                     to={service.href}
                     className="text-secondary-foreground/80 hover:text-accent transition-colors"
                   >
-                    {service.title}
+                    {formatCase(service.title, "title")}
                   </Link>
                 </li>
               ))}
