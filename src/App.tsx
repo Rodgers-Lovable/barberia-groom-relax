@@ -29,30 +29,45 @@ function ScrollToTop() {
   return null;
 }
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/haircut" element={<Haircut />} />
-          <Route path="/services/nail-care" element={<NailCare />} />
-          <Route path="/services/massage" element={<Massage />} />
-          <Route path="/services/facial" element={<Facial />} />
-          <Route path="/services/waxing" element={<Waxing />} />
-          <Route path="/memberships" element={<Memberships />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function usePlausible(domain: string) {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.setAttribute("defer", "");
+    script.setAttribute("data-domain", domain);
+    script.src = "https://plausible.io/js/script.js";
+
+    document.head.appendChild(script);
+  }, [domain]);
+}
+
+const App = () => {
+  usePlausible("baberiacuts.mawirab.com");
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/haircut" element={<Haircut />} />
+            <Route path="/services/nail-care" element={<NailCare />} />
+            <Route path="/services/massage" element={<Massage />} />
+            <Route path="/services/facial" element={<Facial />} />
+            <Route path="/services/waxing" element={<Waxing />} />
+            <Route path="/memberships" element={<Memberships />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
