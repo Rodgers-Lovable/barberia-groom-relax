@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { BookingModal } from "@/components/booking/BookingModal";
 import logo from "@/assets/logo.png";
+import { CONTACT_NUMBER } from "@/config/data";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -116,7 +117,7 @@ const Header = () => {
               </nav>
               <div className="flex items-center space-x-3">
                 <a
-                  href="tel:+254123456789"
+                  href={`tel:${CONTACT_NUMBER}`}
                   className={`flex items-center space-x-2 transition-colors ${
                     isScrolled
                       ? "text-muted-foreground hover:text-primary"

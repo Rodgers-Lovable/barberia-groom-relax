@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Scissors, Heart, Users, Award, Target, Clock } from "lucide-react";
-import heroBarberShop from "@/assets/hero-barbershop.jpg";
+import heroBarberShop from "@/assets/barber_area1.jpg";
 import barberInAction from "@/assets/barber-in-action.jpg";
 
 const About = () => {

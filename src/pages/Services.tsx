@@ -1,91 +1,65 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Scissors, Hand, Heart, Sparkles, Zap, Star, ArrowRight, Clock, DollarSign } from "lucide-react";
-import heroBarbershop from "@/assets/hero-barbershop.jpg";
-import heroSpa from "@/assets/hero-spa.jpg";
+import {
+  Scissors,
+  Hand,
+  Heart,
+  Sparkles,
+  Zap,
+  Star,
+  ArrowRight,
+  Clock,
+  DollarSign,
+} from "lucide-react";
+import heroBarbershop from "@/assets/barber_area.jpeg";
+import heroSpa from "@/assets/massage_oil.jpg";
+import heroMassage from "@/assets/massage1.jpeg";
+import heroFacial from "@/assets/hair_products.jpg";
+import heroWaxing from "@/assets/massage.jpg";
 import groomingSpaTools from "@/assets/grooming-spa-tools.jpg";
+import { serviceCategories } from "@/config/data";
 
 const Services = () => {
-  const serviceCategories = [
-    {
-      icon: Scissors,
-      title: "HAIRCUT",
-      description: "Premium haircuts and styling services with precision and artistry",
-      image: heroBarbershop,
-      href: "/services/haircut",
-      services: ["Platinum Haircut - KES 1,500", "Platinum Fade - KES 2,000", "Royal Shave - KES 2,000"],
-      startingPrice: "From KES 1,000"
-    },
-    {
-      icon: Hand,
-      title: "NAIL CARE",
-      description: "Professional nail care and maintenance for hands and feet",
-      image: heroSpa,
-      href: "/services/nail-care",
-      services: ["Platinum Footcare - KES 2,500", "Platinum Handcare - KES 1,500", "Paraffin Wax - KES 1,000"],
-      startingPrice: "From KES 1,000"
-    },
-    {
-      icon: Heart,
-      title: "MASSAGE",
-      description: "Therapeutic and relaxation massage treatments for ultimate wellness",
-      image: heroSpa,
-      href: "/services/massage",
-      services: ["Platinum Hotstone - KES 6,000", "Swedish Massage - KES 4,500", "Deep Tissue - KES 5,000"],
-      startingPrice: "From KES 500"
-    },
-    {
-      icon: Sparkles,
-      title: "FACIAL",
-      description: "Advanced facial treatments for healthy, glowing skin",
-      image: heroSpa,
-      href: "/services/facial",
-      services: ["Platinum Hydrating - KES 4,000", "Anti-aging - KES 4,500", "Mini Facial - KES 2,000"],
-      startingPrice: "From KES 1,500"
-    },
-    {
-      icon: Zap,
-      title: "WAXING",
-      description: "Professional waxing services for smooth, hair-free skin",
-      image: heroBarbershop,
-      href: "/services/waxing",
-      services: ["Brazilian - KES 3,000", "Chest - KES 1,500", "Leg Waxing - KES 1,500"],
-      startingPrice: "From KES 1,000"
-    }
-  ];
-
   const features = [
     {
       icon: Star,
       title: "Expert Professionals",
-      description: "Certified barbers and licensed massage therapists with years of experience"
+      description:
+        "Certified barbers and licensed massage therapists with years of experience",
     },
     {
       icon: Clock,
       title: "Convenient Scheduling",
-      description: "Flexible booking with same-day availability and extended hours"
+      description:
+        "Flexible booking with same-day availability and extended hours",
     },
     {
       icon: DollarSign,
       title: "Premium Value",
-      description: "Competitive pricing with package deals and loyalty rewards"
-    }
+      description: "Competitive pricing with package deals and loyalty rewards",
+    },
   ];
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${groomingSpaTools})`
+            backgroundImage: `url(${groomingSpaTools})`,
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -95,11 +69,13 @@ const Services = () => {
               Our Services
             </Badge>
             <h1 className="heading-hero text-white">
-              Premium Services at <span className="text-gradient-gold">Baberia Cuts Platinum</span>
+              Premium Services at{" "}
+              <span className="text-gradient-gold">Baberia Cuts Platinum</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Experience luxury grooming and wellness services in Nairobi. From precision haircuts to therapeutic massages, 
-              discover our comprehensive menu at Pension Towers, Loita Street.
+              Experience luxury grooming and wellness services in Nairobi. From
+              precision haircuts to therapeutic massages, discover our
+              comprehensive menu at Pension Towers, Loita Street.
             </p>
           </div>
         </div>
@@ -113,7 +89,8 @@ const Services = () => {
               Choose Your Experience
             </h2>
             <p className="text-premium max-w-2xl mx-auto">
-              Select from our range of specialized services designed to meet your grooming and relaxation needs.
+              Select from our range of specialized services designed to meet
+              your grooming and relaxation needs.
             </p>
           </div>
 
@@ -121,26 +98,36 @@ const Services = () => {
             {serviceCategories.map((category) => {
               const Icon = category.icon;
               return (
-                <Card key={category.title} className="card-service overflow-hidden group">
+                <Card
+                  key={category.title}
+                  className="card-service overflow-hidden group"
+                >
                   <div className="relative h-64">
-                    <img 
-                      src={category.image} 
+                    <img
+                      src={category.image}
                       alt={category.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     <div className="absolute bottom-4 left-4 text-white">
                       <Icon className="h-8 w-8 text-accent mb-2" />
-                      <h3 className="font-playfair text-xl font-semibold">{category.title}</h3>
+                      <h3 className="font-playfair text-xl font-semibold">
+                        {category.title}
+                      </h3>
                     </div>
                   </div>
-                  
+
                   <CardContent className="p-6 space-y-4">
-                    <p className="text-muted-foreground">{category.description}</p>
-                    
+                    <p className="text-muted-foreground">
+                      {category.description}
+                    </p>
+
                     <div className="space-y-2">
                       {category.services.map((service, index) => (
-                        <div key={service} className="flex items-center justify-between text-sm">
+                        <div
+                          key={service}
+                          className="flex items-center justify-between text-sm"
+                        >
                           <span>{service}</span>
                           {index === 0 && (
                             <Badge variant="secondary" className="text-xs">
@@ -150,7 +137,7 @@ const Services = () => {
                         </div>
                       ))}
                     </div>
-                    
+
                     <Link to={category.href} className="block">
                       <Button className="w-full btn-outline-premium group">
                         View Details
@@ -162,7 +149,6 @@ const Services = () => {
               );
             })}
           </div>
-          
         </div>
       </section>
 
@@ -212,8 +198,9 @@ const Services = () => {
               Join the Baberia Cuts Platinum Family
             </h2>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Unlock exclusive benefits, priority booking, and special discounts with our membership program. 
-              Perfect for regular clients who value consistent quality and convenience.
+              Unlock exclusive benefits, priority booking, and special discounts
+              with our membership program. Perfect for regular clients who value
+              consistent quality and convenience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/memberships">
@@ -222,8 +209,8 @@ const Services = () => {
                 </Button>
               </Link>
               <Link to="/memberships">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
                 >
                   View Pricing

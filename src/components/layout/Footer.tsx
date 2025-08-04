@@ -9,16 +9,18 @@ import {
   Twitter,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import {
+  BRAND_NAME,
+  BUILDING,
+  CONTACT_EMAIL,
+  CONTACT_NUMBER,
+  DEVELOPER_WEBSITE,
+  LOCATION,
+  serviceCategories,
+  STREET,
+} from "@/config/data";
 
 const Footer = () => {
-  const services = [
-    { name: "Haircut", href: "/services/haircut" },
-    { name: "Nail Care", href: "/services/nail-care" },
-    { name: "Massage", href: "/services/massage" },
-    { name: "Facial", href: "/services/facial" },
-    { name: "Waxing", href: "/services/waxing" },
-  ];
-
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-16">
@@ -34,7 +36,7 @@ const Footer = () => {
                 alt="Baberia Cuts Platinum"
                 className="w-[100px] h-[80px]"
               />
-              <span>Baberia Cuts Platinum</span>
+              <span>{BRAND_NAME}</span>
             </Link>
             <p className="text-secondary-foreground/80 leading-relaxed">
               Premium grooming and relaxation experience combining expert
@@ -68,13 +70,13 @@ const Footer = () => {
               Services
             </h3>
             <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.name}>
+              {serviceCategories.map((service) => (
+                <li key={service.title}>
                   <Link
                     to={service.href}
                     className="text-secondary-foreground/80 hover:text-accent transition-colors"
                   >
-                    {service.name}
+                    {service.title}
                   </Link>
                 </li>
               ))}
@@ -90,9 +92,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-secondary-foreground/80">Pension Towers</p>
+                  <p className="text-secondary-foreground/80">{BUILDING}</p>
                   <p className="text-secondary-foreground/80">
-                    Loita Street, Nairobi
+                    {STREET} Street. <br /> {LOCATION}
                   </p>
                 </div>
               </div>
@@ -103,7 +105,7 @@ const Footer = () => {
                   href="tel:+254123456789"
                   className="text-secondary-foreground/80 hover:text-accent transition-colors"
                 >
-                  +254 779 431 913
+                  {CONTACT_NUMBER}
                 </a>
               </div>
 
@@ -113,7 +115,7 @@ const Footer = () => {
                   href="mailto:info@baberiacuts.co.ke"
                   className="text-secondary-foreground/80 hover:text-accent transition-colors"
                 >
-                  info@baberiacuts.co.ke
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>
@@ -147,22 +149,18 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-8 flex flex-col text-gray-400 md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm">
             Developed and maintained by{" "}
-            <a href="https://mawirab.com" target="_blank" className="text-accent">
+            <a href={DEVELOPER_WEBSITE} target="_blank" className="text-accent">
               Mawira.
             </a>
           </p>
           <p className="text-sm">
-            © {new Date().getFullYear()} Baberia Cuts Platinum. All rights
-            reserved.
+            © {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <Link to="/privacy" className="hover:text-accent transition-colors">
               Privacy Policy
             </Link>
-            <Link
-              to="/terms"
-              className="hover:text-accent transition-colors"
-            >
+            <Link to="/terms" className="hover:text-accent transition-colors">
               Terms of Service
             </Link>
           </div>

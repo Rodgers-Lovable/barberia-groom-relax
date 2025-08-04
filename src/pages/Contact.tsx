@@ -17,6 +17,15 @@ import {
   EMAILJS_SERVICE_ID,
 } from "@/config/env";
 import { BookingModal } from "@/components/booking/BookingModal";
+import {
+  BOOKING_EMAIL,
+  BRAND_NAME,
+  BUILDING,
+  CONTACT_EMAIL,
+  CONTACT_NUMBER,
+  LOCATION,
+  STREET,
+} from "@/config/data";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -45,7 +54,7 @@ const Contact = () => {
 
     try {
       const templateParams = {
-        to_name: "Baberia Cuts Platinum",
+        to_name: BRAND_NAME,
         from_name: formData.name,
         from_email: formData.email,
         message_type: "feedback",
@@ -116,17 +125,17 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Our Location",
-      details: ["Pension Towers, Loita Street", "Nairobi CBD, Kenya"],
+      details: [`${BUILDING}, ${STREET} Street`, `${LOCATION}`],
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+254 779431913"],
+      details: [`${CONTACT_NUMBER}`],
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@baberiacuts.co.ke", "bookings@baberiacuts.co.ke"],
+      details: [`${CONTACT_EMAIL}`, `${BOOKING_EMAIL}`],
     },
   ];
 
@@ -383,12 +392,15 @@ const Contact = () => {
               >
                 Book Appointment
               </Button>
-              <Button
-                variant="outline"
-                className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
-              >
-                Call Now: +254 779431913
-              </Button>
+
+              <a href={`tel:${CONTACT_NUMBER}`}>
+                <Button
+                  variant="outline"
+                  className="btn-outline-premium bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
+                >
+                  Call Now: {CONTACT_NUMBER}
+                </Button>
+              </a>
             </div>
           </div>
         </div>
